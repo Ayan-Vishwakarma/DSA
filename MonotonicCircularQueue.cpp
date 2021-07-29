@@ -1,7 +1,7 @@
 template <class T,int N>
 class MonotonicCircularQueue
 {
-    public:
+    private:
     pair<T,int> *arr;
     int front,back;
     int n_inserted,n_removed;
@@ -24,7 +24,7 @@ class MonotonicCircularQueue
         if(front == -1)
         {
             front = back = 0;
-            arr[0].first = n;
+            arr[0] = make_pair(n,n_inserted);
         }
         else if(maximal)
         { 
