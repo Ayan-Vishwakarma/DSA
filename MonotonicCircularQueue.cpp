@@ -88,7 +88,7 @@ class MonotonicCircularQueue
             }
         }
     }
-    T peep()
+    T peek()
     {
         return arr[front].first;
     }
