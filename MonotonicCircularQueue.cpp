@@ -1,7 +1,7 @@
 template <class T,int N>
 class MonotonicCircularQueue
 {
-    private:
+    public:
     pair<T,int> *arr;
     int front,back;
     int n_inserted,n_removed;
@@ -9,13 +9,13 @@ class MonotonicCircularQueue
     public:
     MonotonicCircularQueue()
     {
-        arr = malloc(sizeof(T) * N);
+        arr = (pair<T,int>*) malloc((sizeof(T)+sizeof(int)) * N);
         front = back = n_inserted = n_removed = -1;
         maximal = true;
     }
     MonotonicCircularQueue(bool m)
     {
-        arr = malloc(sizeof(T) * N);
+        arr = (pair<T,int>*) malloc((sizeof(T)+sizeof(int)) * N);
         front = back = n_inserted = n_removed = -1;
         maximal = m;
     }
@@ -24,24 +24,29 @@ class MonotonicCircularQueue
         if(front == -1)
         {
             front = back = 0;
-            arr[0] = make_pair(n,n_inserted);
+            arr[0].first = n;
         }
         else if(maximal)
-        {
+        { 
             while(back!=front and arr[back].first <= n)
             {back--;
             if(back==-1)
             back = N-1;
             }
             if(back==front and arr[back].first<=n)
-            {   front = back = 0;
+            {   
+                front = back = 0;
                 arr[0] = make_pair(n,n_inserted);
             }
             else 
-            {
+            {  
                 back++;
                 if(back==N)
                 back = 0;
+                if(back == front)
+                front++;
+                if(front==N)
+                front = 0;
                 arr[back] = make_pair(n,n_inserted);
             }
         }
@@ -61,6 +66,10 @@ class MonotonicCircularQueue
                 back++;
                 if(back==N)
                 back = 0;
+                if(back == front)
+                front++;
+                if(front==N)
+                front = 0;
                 arr[back] = make_pair(n,n_inserted);
             }
         }
