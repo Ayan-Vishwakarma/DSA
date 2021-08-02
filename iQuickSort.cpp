@@ -19,7 +19,7 @@ void quicksort_procedure(int l,int r,T* array,T* index)
     {
         swap(array[l],array[r]);
         swap(index[l],index[r]);
-        quicksort_procedure(l,r-1,array,index);
+        quicksort_procedure<T>(l,r-1,array,index);
         return ;
     }
     label1:
@@ -35,7 +35,7 @@ void quicksort_procedure(int l,int r,T* array,T* index)
     label2:
     swap(array[l],array[r1]);
     swap(index[l],index[r1]);
-        quicksort_procedure(l,r1-1,array,index);
-        quicksort_procedure(l1,r,array,index);
+        quicksort_procedure<T>(l,r1-1,array,index);
+        quicksort_procedure<T>(l1,r,array,index);
         return ;
-    }
+}
