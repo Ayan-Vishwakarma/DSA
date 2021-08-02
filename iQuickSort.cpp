@@ -1,3 +1,11 @@
+/*
+QuickSorting for associated pair of arrays/vectors/deques where association between elements of the two containers
+should be maintained,for example,if A and B be two linear-containers of equal size such that A[i] -> B[i] {A[i] maps to B[i]},then 
+swapping A[i] with A[j] implies automatic swapping of B[i] with B[j] because A[i] maps to B[i] and A[j] maps to B[j].
+
+This is a convenience function {useful for leetcode} and the same effect can be mimicked by using vector<pair<T,T>> and using sort method.
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 
