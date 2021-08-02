@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//_____________________________________________________________
+//_____________________________________________________________
 template<class T>
 void iQuickSort(T* array,T* index,int N)
 {
@@ -8,7 +10,7 @@ void iQuickSort(T* array,T* index,int N)
 }
 template<class T>
 void quicksort_procedure(int l,int r,T* array,T* index)
-{   cout<<l<<' '<<r<<endl;
+{ 
     if(l>=r)
     return;
     int key = array[l];
@@ -39,3 +41,5 @@ void quicksort_procedure(int l,int r,T* array,T* index)
         quicksort_procedure<T>(l1,r,array,index);
         return ;
 }
+//____________________________________________________________
+//____________________________________________________________
