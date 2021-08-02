@@ -1,43 +1,40 @@
+/*
+MonotonicQueue [MaximumQueue] : Stores only the highest value based on given < operator.
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 
-template <class T>
+template <class T,class comp=less<T>>
 class MonotonicQueue
 {
     private:
     deque<pair<T,int>> deck;
     int n_removed;
     int n_inserted;
-    bool maximal;
+    comp compare;
     public:
     MonotonicQueue()
     {
-        n_removed = -1;
-        n_inserted = -1;
-        maximal = true;
-    }
-    MonotonicQueue(bool m)
-    {
-        maximal = m;
         n_removed = -1;
         n_inserted = -1;
     }
     void insert(T n)
     {
         n_inserted++;
-        if(maximal)
-        while(!deck.empty() and deck.back().first<=n)
+        while(!deck.empty() and (compare(deck.back().first,n) or deck.back().first == n))
         deck.pop_back();
-        else
-        while(!deck.empty() and deck.back().first>=n)
-        deck.pop_back();
-        deck.push_back(make_pair(n,n_inserted));
+        deck.push_back(make_pair(n,n _inserted));
     }
     void extract()
     {
         n_removed++;
         if(deck.front().second == n_removed)
         deck.pop_front();
+    }
+    int size()
+    {
+        return deck.size();
     }
     T peek()
     {
