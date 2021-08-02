@@ -22,7 +22,7 @@ class MonotonicQueue
     void insert(T n)
     {
         n_inserted++;
-        while(!deck.empty() and (compare(deck.back().first,n) or deck.back().first == n))
+        while(!deck.empty() and (!compare(n,deck.back().first)))
         deck.pop_back();
         deck.push_back(make_pair(n,n _inserted));
     }
