@@ -23,12 +23,12 @@ void __union__(int i,int j)
     }
     else if(__rank[pi] > __rank[pj])
     {
-        __parent__[pj] = pi;
-        __rank__[pi] += __rank__[pj];
+        __parent[pj] = pi;
+        __rank[pi] += __rank[pj];
     }
     else
     {
-        __parent__[pi] = pj;
-        __rank__[pj] += __rank__[pi];
+        __parent[pi] = pj;
+        __rank[pj] += __rank[pi];
     }
 }
